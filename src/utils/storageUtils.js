@@ -13,8 +13,12 @@ export const importData = (event, setTodos) => {
   const file = event.target.files[0];
   const reader = new FileReader();
   reader.onload = (e) => {
-    const importedTodos = JSON.parse(e.target.result);
-    setTodos(importedTodos);
+    try {
+      const importedTodos = JSON.parse(e.target.result);
+      setTodos(importedTodos);
+    } catch (error) {
+      alert("Felaktig fil. Kunde inte importera todo-listan.");
+    }
   };
   reader.readAsText(file);
 };

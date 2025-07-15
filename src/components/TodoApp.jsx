@@ -23,7 +23,7 @@ useEffect(() => {
 
 // Spara uppgifter i localStorage vid varje ändring av `todos`
 useEffect(() => {
-    console.log('Saving todos to localStorage:', todos);
+    // console.log('Saving todos to localStorage:', todos);
     localStorage.setItem('todos', JSON.stringify(todos));
 }, [todos]);
 
@@ -86,18 +86,6 @@ useEffect(() => {
           </select>
       </div>
       <TodoList todos={sortTodos(filterTodos(todos, filter), sortOrder)} onRemoveTodo={removeTodo} onToggleTodo={toggleTodo}/>
-      {/* <button onClick={() => exportData(todos)}>Exportera Todo-data</button>
-      <input type="file" accept=".json" onChange={(event) => importData(event, setTodos)} />
-      <label htmlFor="file-upload" className="custom-file-upload">
-        Importera Todo-data
-      </label>
-      <input
-        id="file-upload"
-        type="file"
-        accept=".json"
-        onChange={(event) => importData(event, setTodos)}
-        style={{ display: "none" }} // Dölj det ursprungliga input-elementet
-      /> */}
       <button onClick={() => exportData(todos)} className="custom-file-export">
         <FontAwesomeIcon icon={faFileExport} /> Exportera
       </button>

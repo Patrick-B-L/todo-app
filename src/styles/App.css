@@ -135,6 +135,8 @@ body {
     list-style-type: none;
     padding: 0;
     margin: 20px 0;
+    max-height: 25rem;
+    overflow-y: auto; /* Lägg till rullningslist om listan är för lång */
   }
   
   .todo-item {
@@ -155,9 +157,6 @@ body {
     box-sizing: border-box;
   }
 
-  .todo-item:hover {
-    transform: scale(1.02);
-  }
   
   .todo-item.completed {
     text-decoration: line-through;
