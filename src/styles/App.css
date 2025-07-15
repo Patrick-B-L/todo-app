@@ -1,0 +1,238 @@
+/* Bakgrund och typsnitt */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    margin: 10px;
+    padding: 0;
+    text-align: center;
+    height: 100vh;
+  }
+  
+  /* App-behållare */
+  .todo-app {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .add-item-container {
+    background-color: rgb(243, 255, 253); /* Välj en ljus färg för bakgrunden */
+    padding: 20px; /* Skapa avstånd inuti containern */
+    margin: -20px;
+
+  }
+  
+  /* Rubrik */
+  .add-item-container h1 {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Inmatningsfält och knappar */
+  .input-field input {
+    padding: 10px;
+    width: 65%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  .input-description {
+    font-size: 12px; /* Gör texten mindre */
+    color: #6c757d; /* Neutral färg */
+    margin: 20px 10px 10px 10px; /* Skapar lite luft under texten */
+  }  
+
+  .input-field .char-counter {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .input-field button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .input-field button:hover {
+    background-color: #218838;
+  }
+  
+  .filters {
+    display: block;
+    justify-content: center;
+    gap: 10px; /* Avstånd mellan knapparna */
+    margin-top: 50px;
+  }
+  
+  .filters .filters-header {
+    font-size: 14px;
+  }
+
+  .filters button {
+    padding: 10px 20px; /* Öka knappens storlek */
+    margin: 10px;
+    min-width: 100px;
+    border: none;
+    border-radius: 5px; /* Rundade hörn */
+    background-color: #f0f0f0; /* Neutral bakgrundsfärg */
+    color: #333; /* Mörk textfärg */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smidiga övergångar */
+  }
+  
+  .filters button:hover {
+    background-color: #ddd; /* Ljusare när användaren hovrar */
+  }
+  
+  .filters button.active-filter {
+    background-color: #007bff; /* Blå för aktivt filter */
+    color: white; /* Vit text för kontrast */
+    font-weight: bold;
+    transform: scale(1.05); /* Liten förstoring för att sticka ut */
+  }
+  
+  .sort-options {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Skapa avstånd mellan label och dropdown */
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  
+  .sort-options select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  .sort-options select:focus {
+    border-color: #007bff; /* Blå kant vid fokus */
+    outline: none;
+  }
+  
+  
+  /* Todo-lista */
+  .todo-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .todo-item {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    border: 1px solid #ddd;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .todo-item:hover {
+    transform: scale(1.02);
+  }
+  
+  .todo-item.completed {
+    text-decoration: line-through;
+    color: #6c757d;
+  }
+
+  .todo-deadline {
+    font-size: 12px;
+    /*color: #dc3545; Röd färg för att signalera deadline */
+    margin: 5px;
+    display: block;
+  }  
+
+  .todo-item .warning-icon {
+    font-size: 16px;
+    margin-right: 10px; /* Skapar avstånd från texten */
+  }
+  
+  .todo-item .orange-icon {
+    color: orange; /* Ljus orange för nära deadline */
+  }
+  
+  .todo-item .red-icon {
+    color: red; /* Röd för passerad deadline */
+  }
+  
+  .todo-item .warning-text {
+    font-size: 12px; /* Gör texten mindre */
+    color: #333; /* Neutral färg för text */
+  }
+  
+  .todo-item button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .todo-item button:hover {
+    background-color: #c82333;
+  }
+  
+  .custom-file-export, .custom-file-upload {
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    margin: 10px;
+    margin-top: 50px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+  
+  .custom-file-export:hover, .custom-file-upload:hover {
+    background-color: #0056b3;
+  }
+
+  
+  @media (max-width: 700px) {
+    .todo-app {
+      max-width: 700px;
+    }
+    .todo-item {
+      gap: 5px; /* Mindre avstånd mellan elementen för små skärmar */
+      flex-direction: column; /* Ändra från horisontell till vertikal layout */
+      align-items: center; /* Placera elementen från vänster */
+      text-align: center;
+    }
+
+
+  }
+  
