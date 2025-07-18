@@ -10,7 +10,8 @@ function TodoItem({ todo, onRemove, onToggle }) {
     const isOverdue = deadlineDate && deadlineDate < today; // Deadlinen har passerat
   return (
     <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
-    <input 
+    <input
+      className='todo-checkbox' 
       type="checkbox" 
       checked={todo.completed} 
       onChange={onToggle} 

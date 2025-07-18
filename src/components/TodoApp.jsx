@@ -27,14 +27,10 @@ useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
 }, [todos]);
 
-  const addTodo = (newTodo, deadline) => {
-    if (!deadline) {
-      alert('Vänligen ange en deadline innan du lägger till en uppgift.');
-      return; // Stoppar funktionen om deadline saknas
-    }
-
+  const addTodo = (newTodo, deadline, noDeadline) => {
+    
     if (newTodo.trim()) {
-      setTodos([...todos, {id: Date.now(), text: newTodo, completed: false, deadline: deadline || null }]);
+      setTodos([...todos, {id: Date.now(), text: newTodo, completed: false, deadline: noDeadline ? null : deadline }]);
     }
   };
 
@@ -85,7 +81,9 @@ useEffect(() => {
             <option value="deadline-desc">Deadline: Senast först</option>
           </select>
       </div>
-      <TodoList todos={sortTodos(filterTodos(todos, filter), sortOrder)} onRemoveTodo={removeTodo} onToggleTodo={toggleTodo}/>
+      <TodoList 
+      todos={sortTodos(filterTodos(todos, filter), sortOrder)} onRemoveTodo={removeTodo}
+      onToggleTodo={toggleTodo}/>
       <button onClick={() => exportData(todos)} className="custom-file-export">
         <FontAwesomeIcon icon={faFileExport} /> Exportera
       </button>

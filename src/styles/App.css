@@ -36,24 +36,46 @@ body {
   
   /* Inmatningsfält och knappar */
   .input-field input {
+    font-size: 16px;
+    text-align: center;
     padding: 10px;
     width: 65%;
     border: 1px solid #ddd;
     border-radius: 5px;
     margin-right: 10px;
   }
-
-  .input-description {
-    font-size: 12px; /* Gör texten mindre */
-    color: #6c757d; /* Neutral färg */
-    margin: 20px 10px 10px 10px; /* Skapar lite luft under texten */
-  }  
-
+  .input-field input[type="date"] {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    text-align: left; /* Centrera texten i datumfältet */
+  }
   .input-field .char-counter {
-    font-size: 12px;
+    font-size: 14px;
     color: #6c757d;
     margin-top: 5px;
     margin-bottom: 5px;
+  }
+  .input-description {
+    font-size: 14px; /* Gör texten mindre */
+    color: #6c757d; /* Neutral färg */
+    margin: 30px 10px 10px 10px; /* Skapar lite luft under texten */
+  }  
+  .no-deadline-label {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin: 10px 0 20px 0; /* Skapar avstånd ovanför och under etiketten */
+    font-size: 14px;
+    color: #6c757d;
+  }
+  .no-deadline-label input {
+    margin-right: 10px; 
+    cursor: pointer; 
+    width: 20px;
+    height: 20px;
   }
   
   .input-field button {
@@ -63,7 +85,7 @@ body {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    margin: 10px;
+    margin: 20px;
     transition: background-color 0.3s ease;
   }
   
@@ -156,6 +178,11 @@ body {
     max-width: 100%;
     box-sizing: border-box;
   }
+  .todo-checkbox {
+    cursor: pointer; 
+    width: 20px; 
+    height: 20px; 
+  }
 
   
   .todo-item.completed {
@@ -234,7 +261,7 @@ body {
       min-height: 100vh; /* Säkerställ att appen fyller hela höjden på skärmen */
     }
     .todo-item {
-      gap: 5px; /* Mindre avstånd mellan elementen för små skärmar */
+      gap: 10px; /* Mindre avstånd mellan elementen för små skärmar */
       flex-direction: column; /* Ändra från horisontell till vertikal layout */
       align-items: center; /* Placera elementen från vänster */
       text-align: center;
