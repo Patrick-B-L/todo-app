@@ -222,8 +222,16 @@ body {
 
   
   @media (max-width: 700px) {
+    body {
+      margin: 0; /* Ta bort marginaler för små skärmar */
+      padding: 0; /* Ta bort padding för små skärmar */
+      height: auto; /* Anpassa höjden för små skärmar */
+    }
     .todo-app {
       max-width: 700px;
+      margin: 0;
+      height: auto;
+      min-height: 100vh; /* Säkerställ att appen fyller hela höjden på skärmen */
     }
     .todo-item {
       gap: 5px; /* Mindre avstånd mellan elementen för små skärmar */
