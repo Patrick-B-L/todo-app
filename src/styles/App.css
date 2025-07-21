@@ -58,7 +58,7 @@ body {
     margin-top: 5px;
     margin-bottom: 5px;
   }
-  .input-description {
+  .date-input-description {
     font-size: 14px; /* Gör texten mindre */
     color: #6c757d; /* Neutral färg */
     margin: 30px 10px 10px 10px; /* Skapar lite luft under texten */
@@ -76,6 +76,16 @@ body {
     cursor: pointer; 
     width: 20px;
     height: 20px;
+  }
+  .input-field textarea {
+    font-size: 16px;
+    text-align: left; /* Centrera inte texten i textarea */
+    padding: 10px;
+    width: 65%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical; /* Tillåt vertikal ändring av storlek */
+    margin-top: 10px; /* Skapa lite luft ovanför textarea */
   }
   
   .input-field button {
@@ -170,7 +180,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px;
-    align-items: center;
+    align-items: flex-start;
     word-break: break-word;
     overflow-wrap: break-word;
     white-space: pre-wrap;
@@ -178,6 +188,52 @@ body {
     max-width: 100%;
     box-sizing: border-box;
   }
+  .todo-left {
+    display: flex;
+    align-items: flex-start;
+  }
+  .todo-content {
+    flex: 1;
+  }
+  .todo-right {
+    display: flex;
+    align-items: flex-end;
+  }
+  .todo-description {
+    margin: 1rem 0;
+    color: #333;
+    font-size: 14px;
+    width: 80%;
+    justify-self: center;
+    word-break: break-word; /* Gör att texten bryts vid behov */
+    overflow-wrap: break-word; /* Gör att texten bryts vid behov */
+  }
+  .todo-content .info-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff; /* Blå färg för informationsknappen */
+    font-size: 16px;
+    width: 3rem;
+    height: 2rem;
+    margin: 0 1rem;
+  }
+  .todo-content .edit-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #28a745; /* Grön färg för redigeringsknappen */
+    font-size: 16px;
+    width: 3rem;
+    height: 2rem;
+    margin: 0 1rem;
+  }
+  .todo-content .edit-btn:hover,
+  .todo-content .info-btn:hover {
+    background: none;
+    transform: scale(1.25); /* Liten förstoring vid hover */
+  }
+
   .todo-checkbox {
     cursor: pointer; 
     width: 20px; 
@@ -227,6 +283,42 @@ body {
   .todo-item button:hover {
     background-color: #c82333;
   }
+  /* Popup */
+  .modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65%;
+  max-width: 500px;
+  gap: 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  text-align: center;
+}
+.modal-content input, .modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .modal-content button {
+    width: 50%;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+  }
   
   .custom-file-export, .custom-file-upload {
     background-color: #007bff;
@@ -245,6 +337,9 @@ body {
   
   .custom-file-export:hover, .custom-file-upload:hover {
     background-color: #0056b3;
+  }
+  .separator-line {
+    display: none;
   }
 
   
@@ -267,6 +362,13 @@ body {
       text-align: center;
     }
 
+    .separator-line {
+      display: block; /* Visa separator-linjen på små skärmar */
+      width: 100%;
+      height: 1px;
+      background-color: #ddd; /* Ljusgrå färg för separator-linjen */
+      margin: 10px 0; /* Skapa lite luft ovanför och under linjen */
+    }
 
   }
   

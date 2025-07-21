@@ -27,10 +27,17 @@ useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
 }, [todos]);
 
-  const addTodo = (newTodo, deadline, noDeadline) => {
-    
+  const addTodo = (newTodo, deadline, noDeadline, description) => {
     if (newTodo.trim()) {
-      setTodos([...todos, {id: Date.now(), text: newTodo, completed: false, deadline: noDeadline ? null : deadline }]);
+      setTodos([...todos, 
+        {
+          id: Date.now(),
+          text: newTodo, 
+          completed: false, 
+          deadline: noDeadline ? null : deadline,
+          description: description || '',
+        },
+      ]);
     }
   };
 
@@ -40,6 +47,14 @@ useEffect(() => {
     );
     setTodos(updatedTodos);
   };
+
+  const handleEditTodo = (id, newText, newDeadline, newDescription) => {
+  setTodos(todos.map(todo =>
+    todo.id === id
+      ? { ...todo, text: newText, deadline: newDeadline, description: newDescription }
+      : todo
+  ));
+};
 
   const removeTodo = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
@@ -83,7 +98,8 @@ useEffect(() => {
       </div>
       <TodoList 
       todos={sortTodos(filterTodos(todos, filter), sortOrder)} onRemoveTodo={removeTodo}
-      onToggleTodo={toggleTodo}/>
+      onToggleTodo={toggleTodo}
+      onEditTodo={handleEditTodo}/>
       <button onClick={() => exportData(todos)} className="custom-file-export">
         <FontAwesomeIcon icon={faFileExport} /> Exportera
       </button>

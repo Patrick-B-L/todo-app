@@ -4,7 +4,7 @@ function InputField({ onAddTodo }) {
   const [inputValue, setInputValue] = useState('');
   const [deadline, setDeadline] = useState('');
   const [noDeadline, setNoDeadline] = useState(false);
-
+  const [description, setDescription] = useState('');
 
   const handleAdd = () => {
     // kontrollera om input text är tom
@@ -16,10 +16,11 @@ function InputField({ onAddTodo }) {
       alert('Vänligen ange en deadline eller välj "Ingen deadline" innan du lägger till en uppgift.');
       return; // Stoppar funktionen om deadline saknas
     }
-    onAddTodo(inputValue, deadline, noDeadline);
+    onAddTodo(inputValue, deadline, noDeadline, description);
     setInputValue(''); 
     setDeadline('');
     setNoDeadline(false);
+    setDescription('');
   };
 
   return (
@@ -34,7 +35,7 @@ function InputField({ onAddTodo }) {
       <div className="char-counter">
         {50 - inputValue.length} tecken kvar
       </div>
-      <p className="input-description">
+      <p className="date-input-description">
       Ange ett datum för när uppgiften ska vara klar eller välj "Ingen deadline".
       </p>
       <input
@@ -52,6 +53,18 @@ function InputField({ onAddTodo }) {
         />
         Ingen deadline
       </label>
+      <textarea
+        className='description-input'
+        value={description}
+        onChange={e => setDescription(e.target.value)}
+        placeholder="Beskrivning (valfritt)"
+        maxLength={300}
+        rows={3}
+        // style={{ width: '65%', marginTop: '10px', resize: 'vertical' }}
+      />
+      <div className="char-counter">
+        {300 - description.length} tecken kvar
+      </div>
       <div>
         <button onClick={handleAdd}>Lägg till</button>
       </div>
