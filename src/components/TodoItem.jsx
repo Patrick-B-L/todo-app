@@ -71,7 +71,12 @@ function TodoItem({ todo, onRemove, onToggle, isOpen, onToggleDescription, onEdi
           <FontAwesomeIcon icon={faEdit} />
         </button>
         </div>
-        {/* Redigeringsformulär */}
+      </div>
+      <div className='separator-line'></div>
+      <div className='todo-right'>
+        <button onClick={e => { e.stopPropagation(); setShowConfirm(true); }}>Ta bort</button>
+      </div>
+      {/* Redigeringsformulär */}
         {editing && (
           <div className="modal-overlay">
             <div className="modal-content">
@@ -97,11 +102,6 @@ function TodoItem({ todo, onRemove, onToggle, isOpen, onToggleDescription, onEdi
               </div>
           </div>
         )}
-      </div>
-      <div className='separator-line'></div>
-      <div className='todo-right'>
-      <button onClick={e => { e.stopPropagation(); setShowConfirm(true); }}>Ta bort</button>
-      </div>
       {/* Bekräftelsemodal för borttagning */}
       {showConfirm && (
         <div className="modal-overlay">

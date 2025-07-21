@@ -5,7 +5,7 @@ body {
     margin: 10px;
     padding: 0;
     text-align: center;
-    height: 100vh;
+    min-height: 100vh;
   }
   
   /* App-behållare */
@@ -13,9 +13,9 @@ body {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 40px auto;
+    margin: 2rem auto;
     max-width: 800px;
-    padding: 20px;
+    padding: 0;
     box-sizing: border-box;
     overflow: hidden;
   }
@@ -23,7 +23,6 @@ body {
   .add-item-container {
     background-color: rgb(243, 255, 253); /* Välj en ljus färg för bakgrunden */
     padding: 20px; /* Skapa avstånd inuti containern */
-    margin: -20px;
 
   }
   
@@ -163,18 +162,25 @@ body {
   
   
   /* Todo-lista */
+  .todo-list-section {
+    width: 100%;
+    padding: 0 2rem;
+    min-height: 10rem;
+    background-color: rgb(243, 255, 253);
+    box-sizing: border-box;
+  } 
   .todo-list {
     list-style-type: none;
     padding: 0;
     margin: 20px 0;
-    max-height: 25rem;
+    max-height: 50rem;
     overflow-y: auto; /* Lägg till rullningslist om listan är för lång */
   }
   
   .todo-item {
-    background-color: #f8f9fa;
+    background-color: #fff;
     padding: 10px 15px;
-    margin-bottom: 10px;
+    margin: 2rem 0;
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
@@ -341,6 +347,27 @@ body {
   .separator-line {
     display: none;
   }
+  .todo-import-export {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+     /* Avstånd mellan import och export knappar */
+  }
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 255, 253);
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #6c757d; /* Neutral färg för texten */
+    position: relative;
+    min-height: 5rem;
+    width: 100%;
+  }
 
   
   @media (max-width: 700px) {
@@ -355,6 +382,9 @@ body {
       height: auto;
       min-height: 100vh; /* Säkerställ att appen fyller hela höjden på skärmen */
     }
+    .todo-list-section {
+      padding: 1rem;
+    } 
     .todo-item {
       gap: 10px; /* Mindre avstånd mellan elementen för små skärmar */
       flex-direction: column; /* Ändra från horisontell till vertikal layout */

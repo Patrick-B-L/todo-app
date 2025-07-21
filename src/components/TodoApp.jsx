@@ -96,10 +96,17 @@ useEffect(() => {
             <option value="deadline-desc">Deadline: Senast först</option>
           </select>
       </div>
+      <div className='todo-list-section'>
       <TodoList 
       todos={sortTodos(filterTodos(todos, filter), sortOrder)} onRemoveTodo={removeTodo}
       onToggleTodo={toggleTodo}
       onEditTodo={handleEditTodo}/>
+      </div>
+      <div className='todo-import-export'>
+      <div className="todo-count">
+        {todos.length} {todos.length === 1 ? 'uppgift' : 'uppgifter'} totalt
+      </div>
+      <div>
       <button onClick={() => exportData(todos)} className="custom-file-export">
         <FontAwesomeIcon icon={faFileExport} /> Exportera
       </button>
@@ -113,6 +120,11 @@ useEffect(() => {
         onChange={(event) => importData(event, setTodos)}
         style={{ display: "none" }}
       />
+      </div>
+      </div>
+      <div className='footer'>
+        <p>Copyright &copy; 2025</p>
+      </div>
 
 
 
